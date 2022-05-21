@@ -211,3 +211,16 @@ add_dependencies(virtual_lrf ${catkin_EXPORTED_TARGETS})
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+## refs:
+### https://github.com/ros-perception/slam_gmapping/blob/melodic-devel/gmapping/CMakeLists.txt
+### http://wiki.ros.org/rostest/Writing
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  # if(TARGET tests)
+  # endif()
+
+  add_rostest(test/default_param.test)
+  add_rostest(test/custom_param.test)
+endif()
