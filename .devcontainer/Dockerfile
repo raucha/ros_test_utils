@@ -28,6 +28,10 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # # * Anything else you want to do like clean up goes here *
 # # ********************************************************
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-${ROS_VER}-tf \
+    && rm -rf /var/lib/apt/lists/*
+
 #######
 ### zsh
 #######
@@ -42,7 +46,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV SHELL /usr/bin/zsh
 # ログインシェルを指定(アカウント情報の作成) 
 RUN sed -i.bak "s|$HOME:|$HOME:$SHELL|" /etc/passwd
-# 以降のRUN/CMDを実行するユーザー
+# 以降のRUN/CMDを実行するユーザーasdf
 USER $USER
 # preztoをクローンしてくる
 RUN git clone --recursive \

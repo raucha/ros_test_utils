@@ -27,7 +27,8 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-iot.vscode-ros"
+		"ms-iot.vscode-ros",
+		"ms-vscode.cmake-tools"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
