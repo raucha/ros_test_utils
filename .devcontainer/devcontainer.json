@@ -22,7 +22,11 @@
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"ros.distro": "kinetic"
+		"ros.distro": "kinetic",
+		"[cpp]": {
+			"editor.defaultFormatter": "ms-iot.vscode-ros"
+		},
+		"editor.formatOnSave": true
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.

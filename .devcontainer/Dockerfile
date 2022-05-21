@@ -29,7 +29,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # # ********************************************************
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    wget \
+    iputils-ping
     ros-${ROS_VER}-tf \
+    clang-format \
     && rm -rf /var/lib/apt/lists/*
 
 #######
@@ -39,8 +43,6 @@ ENV USER ${USERNAME}
 ENV HOME /home/${USERNAME}
 RUN apt-get update && apt-get install -y --no-install-recommends \
     zsh \
-    curl \
-    wget \
     && rm -rf /var/lib/apt/lists/*
 # 環境変数の設定
 ENV SHELL /usr/bin/zsh
