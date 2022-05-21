@@ -28,10 +28,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # # * Anything else you want to do like clean up goes here *
 # # ********************************************************
 
+### Additional packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     wget \
-    iputils-ping
+    iputils-ping \
     ros-${ROS_VER}-tf \
     clang-format \
     && rm -rf /var/lib/apt/lists/*
@@ -52,8 +53,8 @@ RUN sed -i.bak "s|$HOME:|$HOME:$SHELL|" /etc/passwd
 USER $USER
 # preztoをクローンしてくる
 RUN git clone --recursive \
-        https://github.com/sorin-ionescu/prezto.git \
-        $HOME/.zprezto
+    https://github.com/sorin-ionescu/prezto.git \
+    $HOME/.zprezto
 
 # preztoの設定ファイルのシンボリックリンクを
 # ホームディレクトリに張る
