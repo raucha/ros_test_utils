@@ -1,0 +1,3 @@
+<launch>
+    <test time-limit="5" test-name="test_symmetry" pkg="test_utils" type="test_try_py.py" args=""/>
+</launch>

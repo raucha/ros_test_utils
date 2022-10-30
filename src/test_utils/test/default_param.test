@@ -1,3 +1,5 @@
 <launch>
+    <node pkg="test_utils" type="virtual_lrf" name="virtual_lrf">
+    </node>
     <test time-limit="5" test-name="default_param" pkg="test_utils" type="test.py" args=""/>
 </launch>

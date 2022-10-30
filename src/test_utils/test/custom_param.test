@@ -1,3 +1,7 @@
 <launch>
-    <test time-limit="5" test-name="custom_param" pkg="test_utils" type="test.py" args=""/>
+    <arg name="frame_id" value="test_frame" />
+    <node pkg="test_utils" type="virtual_lrf" name="virtual_lrf">
+        <param name="frame_id" value="($arg frame_id)" />
+    </node>
+    <test time-limit="20" test-name="custom_param" pkg="test_utils" type="test.py" args="--frameid ($frame_id)"/>
 </launch>
